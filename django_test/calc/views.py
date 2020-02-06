@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import User
 # Create your views here.
 
 def home (request ):
@@ -15,3 +16,22 @@ def add (request):
 
 def index(request):
     return render(request,'index.html')
+
+def account_login(request):
+    return render(request,'auth/signup.html')
+
+def new_user(request):
+   
+    
+    username=request.GET['name'];
+    email=request.GET['email'];
+    password=request.GET['password'];
+    mobile=request.GET['mobile'];
+    
+     new_user=User();
+    new_user.name=username;
+    new_user.email=email;
+    new-user.password=password;
+    new-user.mobile=mobile;
+    
+    return render(request,'auth/signup.html');
